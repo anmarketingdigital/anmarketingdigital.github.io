@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AN Marketing Digital | León, Guanajuato</title>
+    <style>
+        /* Variables de colores premium y neón */
+        :root {
+            --bg-dark: #0a0a0a;
+            --bg-card: #141414;
+            --text-light: #ffffff;
+            --text-gray: #a0a0a0;
+            --neon-green: #39ff14;
+            --neon-red: #ff073a;
+        }
+
+        /* Reseteo y fuentes */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        /* Navegación */
+        header {
+            background-color: rgba(10, 10, 10, 0.95);
+            padding: 20px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(57, 255, 20, 0.2);
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--text-light);
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 0 0 5px var(--neon-green);
+        }
+
+        .logo span {
+            color: var(--neon-red);
+            text-shadow: 0 0 5px var(--neon-red);
+        }
+
+        nav a {
+            color: var(--text-light);
+            text-decoration: none;
+            margin-left: 20px;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--neon-green);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(to bottom, rgba(10,10,10,0.7), rgba(10,10,10,1)), 
+                        url('https://scontent.fcyw1-1.fna.fbcdn.net/v/t39.30808-6/506340972_651369564589800_8605899084790965579_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=2a1932&_nc_ohc=SzMbp-mqM_wQ7kNvwERVYjq&_nc_oc=AdlnumZl99rOgFJ8WcyrCLc7xE0RTAyPHGmAyAGmrV-Y5cJbQuI2j4scPJpu9mo_znP-wDWyQljRNbqrVKdots5Z&_nc_zt=23&_nc_ht=scontent.fcyw1-1.fna&_nc_gid=57sBfs3zVlYk6eJ3RHYDTQ&_nc_ss=8&oh=00_AfwoWrkPTE7cmxQiI-V2XvGLEWMMzimIQsn3lP1QYQKr9A&oe=69ADC80F') center/cover;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+        }
+
+        .hero h1 span {
+            color: var(--neon-green);
+            text-shadow: 0 0 10px rgba(57, 255, 20, 0.5);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-gray);
+            max-width: 600px;
+            margin-bottom: 40px;
+        }
+
+        /* Botones Neón */
+        .btn-neon-green {
+            padding: 15px 30px;
+            font-size: 1.1rem;
+            color: var(--bg-dark);
+            background-color: var(--neon-green);
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            box-shadow: 0 0 15px var(--neon-green);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .btn-neon-green:hover {
+            box-shadow: 0 0 25px var(--neon-green), 0 0 50px var(--neon-green);
+            transform: scale(1.05);
+        }
+
+        .btn-neon-red {
+            padding: 15px 30px;
+            font-size: 1.1rem;
+            color: var(--text-light);
+            background-color: transparent;
+            border: 2px solid var(--neon-red);
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            box-shadow: 0 0 10px rgba(255, 7, 58, 0.5) inset, 0 0 10px rgba(255, 7, 58, 0.5);
+            transition: all 0.3s ease;
+            margin-left: 15px;
+        }
+
+        .btn-neon-red:hover {
+            background-color: var(--neon-red);
+            box-shadow: 0 0 20px var(--neon-red);
+            transform: scale(1.05);
+        }
+
+        /* Títulos de sección */
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin: 80px 0 40px;
+            text-transform: uppercase;
+        }
+
+        .section-title span {
+            color: var(--neon-red);
+            text-shadow: 0 0 8px rgba(255, 7, 58, 0.6);
+        }
+
+        /* Servicios Grid */
+        .services-container, .portfolio-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            padding: 0 50px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .card {
+            background-color: var(--bg-card);
+            border: 1px solid rgba(255,255,255,0.05);
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(57, 255, 20, 0.15);
+            border-color: rgba(57, 255, 20, 0.5);
+        }
+
+        .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-bottom: 2px solid var(--neon-red);
+        }
+
+        .card-content {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .card-content h3 {
+            margin-bottom: 10px;
+            color: var(--neon-green);
+        }
+
+        /* Nosotros / Reel Section */
+        .about-section {
+            background-color: #111;
+            padding: 80px 20px;
+            text-align: center;
+            margin-top: 80px;
+            border-top: 1px solid rgba(255, 7, 58, 0.3);
+            border-bottom: 1px solid rgba(255, 7, 58, 0.3);
+        }
+
+        .about-section p {
+            max-width: 800px;
+            margin: 0 auto 30px auto;
+            color: var(--text-gray);
+            font-size: 1.1rem;
+        }
+
+        /* Footer y Contacto */
+        footer {
+            background-color: #050505;
+            padding: 50px 20px;
+            text-align: center;
+            margin-top: 80px;
+        }
+
+        .social-links {
+            margin: 20px 0;
+        }
+
+        .social-links a {
+            color: var(--text-light);
+            font-size: 1.2rem;
+            margin: 0 10px;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .social-links a:hover {
+            color: var(--neon-green);
+        }
+
+        /* Botón Flotante WhatsApp */
+        .whatsapp-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 40px;
+            right: 40px;
+            background-color: #25d366;
+            color: #FFF;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 0px 0px 15px rgba(37, 211, 102, 0.5);
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: transform 0.3s;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            box-shadow: 0px 0px 25px rgba(37, 211, 102, 0.8);
+        }
+
+        /* Responsividad */
+        @media (max-width: 768px) {
+            header { padding: 15px 20px; flex-direction: column; gap: 15px; }
+            .hero h1 { font-size: 2.5rem; }
+            .services-container, .portfolio-container { padding: 0 20px; }
+            .btn-neon-red { margin-left: 0; margin-top: 15px; display: block; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="#" class="logo">AN <span>Marketing</span></a>
+        <nav>
+            <a href="#servicios">Servicios</a>
+            <a href="#casos">Casos de Éxito</a>
+            <a href="#nosotros">Nosotros</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>Impulsa tu marca con <span>AN Marketing Digital</span></h1>
+        <p>Somos la agencia premium de León, Guanajuato. Creamos estrategias, contenido y desarrollos web enfocados en resultados y escalabilidad para tu negocio.</p>
+        <div>
+            <a href="https://Wa.me/524778579202" target="_blank" class="btn-neon-green">Cotizar Proyecto</a>
+            <a href="#casos" class="btn-neon-red">Ver Nuestro Trabajo</a>
+        </div>
+    </section>
+
+    <section id="servicios">
+        <h2 class="section-title">Nuestros <span>Servicios</span></h2>
+        <div class="services-container">
+            <div class="card">
+                <img src="https://scontent.fcyw1-1.fna.fbcdn.net/v/t39.30808-6/627049061_842234982169923_2090910812866621545_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=13d280&_nc_ohc=zRUJhs36_foQ7kNvwGKF2lh&_nc_oc=AdlFYRlFEw2lRMFL-xoJ3OF7TfI8FwIvazLsI0nBNPGw29l_HeXUB3_LhaO0Lm8qNYFMRgt-hvzG9Wl505aAepAE&_nc_zt=23&_nc_ht=scontent.fcyw1-1.fna&_nc_gid=VG-Dgmz-KyIKj8BHWnhZMg&_nc_ss=8&oh=00_AfwtpCHSLWiZQH_3P-g2oMA3IrmGNMytNmOmmj3xZvZv2g&oe=69ADD7CE" alt="Manejo de Redes">
+                <div class="card-content">
+                    <h3>Manejo de Redes Sociales</h3>
+                    <p>Construimos comunidades sólidas y gestionamos tus perfiles con estrategias de alto impacto.</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://scontent.fcyw1-1.fna.fbcdn.net/v/t39.30808-6/518139738_676048595455230_2954951325272114590_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=13d280&_nc_ohc=zzsPgaAQB5IQ7kNvwE9FbwE&_nc_oc=Adnh_dDrwTUiLKzqLPraS77N2lpN7-XFO3-kdoX9lmFtgL073VlXw0fV5EqZ4YUGXOvkw55gK7IcDFgKAXwpFHTl&_nc_zt=23&_nc_ht=scontent.fcyw1-1.fna&_nc_gid=M8a8q_oAvWnz49zoRfJTQg&_nc_ss=8&oh=00_Afw8Lj9WijDCXLswB6kesnOQokupPeGUKC6jSwfTK4RJKQ&oe=69ADBE32" alt="Creación de Contenido">
+                <div class="card-content">
+                    <h3>Creación de Contenido</h3>
+                    <p>Producción audiovisual premium que captura la esencia de tu marca y retiene la atención.</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://scontent.fcyw1-1.fna.fbcdn.net/v/t39.30808-6/504423658_646922198367870_8630971587836526748_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=13d280&_nc_ohc=W4cZwQLXmCEQ7kNvwGvpX8v&_nc_oc=AdlYJm-92tvoXXgdAPxqW3sXYtVL2NNlB3lcD3eXdmbnPxscZfruT0MECFCG9Gl9iMZyGek20AXoBncO3wZBXUv6&_nc_zt=23&_nc_ht=scontent.fcyw1-1.fna&_nc_gid=sNEzwORQYajeZFF4lG_eOA&_nc_ss=8&oh=00_Afwqg6Sdo3dJPRqyCp27rfHZsp1U90cyO6uiN_Ym5EbRRQ&oe=69ADD734" alt="Campañas Publicitarias">
+                <div class="card-content">
+                    <h3>Campañas Publicitarias</h3>
+                    <p>Lanzamientos precisos y optimización de presupuesto para maximizar tu retorno de inversión.</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://scontent.fcyw1-1.fna.fbcdn.net/v/t39.30808-6/491154065_613825831677507_4801029210922334385_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=13d280&_nc_ohc=3CD3BAknVsAQ7kNvwHAaa5l&_nc_oc=AdkfxWXWKKgZfaaXK3G7DEiz3qgDwiY4YEBizCecT2FKm1FBgXfqGXhP1TM1-UfxXM2MDkrr7tb-xv2odVr-vJPo&_nc_zt=23&_nc_ht=scontent.fcyw1-1.fna&_nc_gid=gcXyJgw_5ojjeh7QqCusHw&_nc_ss=8&oh=00_AfytJtfIHAdhfPOSQYsaMMn8VaBbmHGNVdEFSHskmySx7g&oe=69ADB86E" alt="Desarrollo Web">
+                <div class="card-content">
+                    <h3>Desarrollo de Páginas Web</h3>
+                    <p>Sitios modernos, responsivos y diseñados específicamente para convertir visitantes en clientes.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="casos">
+        <h2 class="section-title">Casos de <span>Éxito</span></h2>
+        <div class="portfolio-container">
+            <div class="card">
+                <img src="https://scontent.fcyw1-1.fna.fbcdn.net/v/t39.30808-6/473726838_1188821653220093_2894031364726006145_n.png?_nc_cat=108&ccb=1-7&_nc_sid=2a1932&_nc_ohc=DG8RdiO_4zYQ7kNvwGay8pq&_nc_oc=Adm53zMfvs96eq1QtJFHk_cFrOhtuiu9joDNEORb6XfC68n3iOIUD1SLYXOLtbwpSprE8nYJDFRR_l_NOH7F8jo-&_nc_zt=23&_nc_ht=scontent.fcyw1-1.fna&_nc_gid=D5lj9B13p2hN4bDcQv_3wA&_nc_ss=8&oh=00_AfxqeLuoJw57siPy4n-LSPio-UoDIWWY15o_5MOwio3HPA&oe=69ADD1D8" alt="Mariachi Juvenil America">
+                <div class="card-content">
+                    <h3>Mariachi Juvenil América</h3>
+                    <p>Producción de video promocional y copywriting estratégico para destacar su increíble talento y tradición.</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://scontent.fcyw1-1.fna.fbcdn.net/v/t39.30808-6/611984069_1744053436656369_6315338182060889358_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=1d70fc&_nc_ohc=h92Hado7a3IQ7kNvwEQTyHu&_nc_oc=Adkvh1jsjLMQCmD-zRVdm2D0XNvZpFj0COpWEKZee3qDmt5wvq0ca2Qswcis1UGT7Ge6w_dkFoFKDskL9EpwHEfe&_nc_zt=23&_nc_ht=scontent.fcyw1-1.fna&_nc_gid=gQigBUfUYMtdwIJCSbOrNg&_nc_ss=8&oh=00_Afw6V05eqxykMGDwj7GjfbPPzjTLIEv4jDoxMJs6NgVXtA&oe=69ADD3AC" alt="El Muelle">
+                <div class="card-content">
+                    <h3>El Muelle</h3>
+                    <p>Estrategia visual y posicionamiento digital para atraer comensales y destacar su oferta gastronómica.</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://scontent.fcyw1-1.fna.fbcdn.net/v/t39.30808-6/646375520_1517670403490480_2919784450115105873_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=13d280&_nc_ohc=DDDHt_8D__QQ7kNvwENEUBF&_nc_oc=AdmHw2-eahRZRCs7Bsr3wCH97M0Wnui83SnmNKwmOseSMtcH1b9i02L4rXA-Y6-3r7VegTS4ZaSK6g1wzyS4dynw&_nc_zt=23&_nc_ht=scontent.fcyw1-1.fna&_nc_gid=MuC6Ib_NIKwm07dxhXbQPQ&_nc_ss=8&oh=00_Afwzk4VSiX453NEJNucbssf24ir5oKpXdHFK3ZJbaaVEvA&oe=69ADCC65" alt="Azteca Travels">
+                <div class="card-content">
+                    <h3>Azteca Travels</h3>
+                    <p>Generación de contenido atractivo e impulso de campañas para potenciar sus ventas y alcance.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="nosotros" class="about-section">
+        <h2 class="section-title" style="margin-top: 0;">Conoce a <span>Nosotros</span></h2>
+        <p>Radicados en León, Guanajuato, en AN Marketing Digital no solo publicamos por publicar. Analizamos, creamos y ejecutamos estrategias integrales que dan resultados reales. Conoce la energía y el trabajo detrás de nuestra agencia.</p>
+        <a href="https://www.facebook.com/share/r/16hQ4MrE3D/" target="_blank" class="btn-neon-red">Ver nuestro Video en Facebook</a>
+    </section>
+
+    <footer>
+        <a href="#" class="logo">AN <span>Marketing</span></a>
+        <p style="margin-top: 15px; color: var(--text-gray);">Orgullosamente en León, Guanajuato, México.</p>
+        <div class="social-links">
+            <a href="https://www.facebook.com/profile.php?id=100091502874923" target="_blank">Facebook</a> |
+            <a href="https://www.instagram.com/anmarketing.digital" target="_blank">Instagram</a> |
+            <a href="https://www.tiktok.com/@an_marketing_digital?is_from_webapp=1&sender_device=pc" target="_blank">TikTok</a>
+        </div>
+        <p style="color: var(--text-gray); font-size: 0.9rem;">&copy; 2026 AN Marketing Digital. Todos los derechos reservados.</p>
+    </footer>
+
+    <a href="https://Wa.me/524778579202" class="whatsapp-float" target="_blank" title="Contáctanos por WhatsApp">
+        <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" viewBox="0 0 16 16">
+            <path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c-.003 1.396.362 2.76 1.053 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"/>
+        </svg>
+    </a>
+
+</body>
+</html>
